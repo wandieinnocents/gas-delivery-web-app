@@ -49,7 +49,13 @@
                                                 <td>
 													<div class="d-flex">
 														<a href="{{ route('products.edit',$product->id)}}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
-														<a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a> 
+														<!-- <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>  -->
+                                                        <form action="{{ route('products.destroy', $product->id)}}" method="post">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <a >  <button class="btn btn-danger shadow btn-xs sharp"> <span class="fa fa-trash"> </button> </a>  
+                                                        
+                                                    </form>
                                                 </div>
 												</td>
                                             </tr>
