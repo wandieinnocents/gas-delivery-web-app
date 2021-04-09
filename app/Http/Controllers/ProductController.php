@@ -76,6 +76,10 @@ class ProductController extends Controller
     public function edit($id)
     {
         //
+        $product = Product::findOrFail($id);
+        $categories = Category::all();
+
+        return view('back_end.pages_backend.products_backend.edit',compact('product','categories'));
     }
 
     /**
@@ -87,7 +91,17 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'product_category_id' => 'required|max:255',
+            'product_name' => 'required|max:255',
+            'product_price' => 'required|numeric',
+            'product_description' => 'required|max:255',
+            
+        ]);
+
+        Product::whereId($id)->update($validatedData);
+
+        return redirect('/products')->with('success', 'Contact is successfully updated');
     }
 
     /**
