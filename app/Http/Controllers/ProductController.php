@@ -12,7 +12,7 @@ class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     *  
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -62,9 +62,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Product $product)
     {
-        //
+       
+        return view('back_end.pages_backend.products_backend.show',compact('product',$product));
     }
 
     /**
