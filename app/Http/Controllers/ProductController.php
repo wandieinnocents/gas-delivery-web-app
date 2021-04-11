@@ -50,6 +50,23 @@ class ProductController extends Controller
         $product->product_name        = $request->product_name;
         $product->product_price       = $request->product_price;
         $product->product_description = $request->product_description;
+
+        //image upload
+
+        if($request->hasfile('product_image')){
+            $file               = $request->file('product_image');
+            $extension          = $file->getClientOriginalExtension();  //get image extension
+            $filename           = time() . '.' .$extension;
+            $file->move('uploads/products/',$filename);
+            $product->product_image   = $filename;
+        }
+
+        else{
+            return $request;
+            $product->product_image = '';
+        }
+
+
         // save data to the database
         $product->save();
         return redirect('/products');
@@ -97,8 +114,12 @@ class ProductController extends Controller
             'product_name' => 'required|max:255',
             'product_price' => 'required|numeric',
             'product_description' => 'required|max:255',
+            'product_image' => 'required|image',
             
         ]);
+
+        // image update
+        
 
         Product::whereId($id)->update($validatedData);
 

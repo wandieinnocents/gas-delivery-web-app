@@ -36,7 +36,9 @@ Route::resource('/categories','App\Http\Controllers\CategoryController');
 
 // Route::get('/add_product' , 'App\Http\Controllers\AdminPagesController@add_product');
 // view product 
-Route::get('/view_product' , 'App\Http\Controllers\AdminPagesController@view_product');
+// Route::get('/view_product' , 'App\Http\Controllers\AdminPagesController@view_product');
+// image upload
+Route::resource('/imagess','App\Http\Controllers\ImageUploadController');
 
 
 

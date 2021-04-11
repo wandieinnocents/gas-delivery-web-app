@@ -29,7 +29,7 @@
                         <div class="card-body">
                             <div class="basic-form">
                             
-                                <form action="{{ route('products.store') }}" method="post">
+                                <form action="{{ route('products.store') }}" method="post" enctype="multipart/form-data">
                                     {{ csrf_field() }}
 
                                     <!-- <div class="form-group">
@@ -60,10 +60,10 @@
                                     </div>
 
                                     <!-- browse -->
-                                    <!-- <div class="custom-file">
-                                                <input type="file" class="custom-file-input">
+                                    <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="product_image">
                                                 <label class="custom-file-label">Choose file</label>
-                                    </div> -->
+                                    </div>
 
                                 <!-- submit -->
                                 <button type="submit" class="btn btn-primary">Add Product</button>

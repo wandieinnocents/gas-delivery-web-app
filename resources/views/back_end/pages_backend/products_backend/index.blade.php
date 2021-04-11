@@ -32,6 +32,7 @@
                                                 <th><strong>Name</strong></th>
                                                 <th><strong>Price</strong></th>
                                                 <th><strong>Description</strong></th>
+                                                <th><strong>Image</strong></th>
                                                 <th colspan="3">Action</th>
                                             </tr>
                                         </thead>
@@ -46,6 +47,8 @@
                                                 <td> {{ $product->product_name }}	</td>
                                                 <td> {{ $product->product_price }} </td>
                                                 <td> {{ $product->product_description }} </td>
+                                                <td>  <img src="{{ asset('uploads/products/' . $product->product_image ) }}" alt="img" class="img-thumbnail" width="75"> </td>	
+
                                                 <td>
 													<div class="d-flex">
                                                   

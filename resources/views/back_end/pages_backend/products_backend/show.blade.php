@@ -34,7 +34,9 @@
                                 <h5 class="card-title">{{ $product->product_name }} - {{ $product->category->name }}</h5>
                             </div>
                             <div class="card-body">
-                            <img class="card-img-top img-fluid" src="{{ asset('assets/backendassets/images/card/1.png') }}" alt="Card image cap">
+                            <img class="card-img-top img-fluid" src="{{ asset('uploads/products/' . $product->product_image ) }}" alt="Card image cap">
+                            
+
 
                                 <p class="card-text">
                                 {{ $product->product_description }}

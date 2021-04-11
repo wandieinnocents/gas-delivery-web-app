@@ -41,7 +41,7 @@
                         <!-- end of validation -->
                             <div class="basic-form">
                             
-                            <form action="{{ route('products.update', $product->id) }}" method="post">
+                            <form action="{{ route('products.update', $product->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('PATCH')
 
@@ -73,10 +73,10 @@
                                     </div>
 
                                     <!-- browse -->
-                                    <!-- <div class="custom-file">
-                                                <input type="file" class="custom-file-input">
+                                    <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="product_image">
                                                 <label class="custom-file-label">Choose file</label>
-                                    </div> -->
+                                    </div>
 
                                 <!-- submit -->
                                 <button type="submit" class="btn btn-primary">UPDATE</button>
