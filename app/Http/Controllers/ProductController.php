@@ -65,8 +65,6 @@ class ProductController extends Controller
             return $request;
             $product->product_image = '';
         }
-
-
         // save data to the database
         $product->save();
         return redirect('/products');
@@ -93,7 +91,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        
         $product = Product::findOrFail($id);
         $categories = Category::all();
 
@@ -109,19 +107,36 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validatedData = $request->validate([
-            'product_category_id' => 'required|max:255',
-            'product_name' => 'required|max:255',
-            'product_price' => 'required|numeric',
-            'product_description' => 'required|max:255',
-            'product_image' => 'required|image',
+        // $validatedData = $request->validate([
+        //     'product_category_id' => 'required|max:255',
+        //     'product_name' => 'required|max:255',
+        //     'product_price' => 'required|numeric',
+        //     'product_description' => 'required|max:255',
+        //     'product_image' => 'required|image',
             
-        ]);
+        // ]);
+      
+        // Product::whereId($id)->update($validatedData);
 
-        // image update
+
+        // IMAGE UPDATE CODE 2
+        $product_category_id = $request->product_category_id;
+        $product_name = $request->product_name;
+        $product_price = $request->product_price;
+        $product_description = $request->product_description;
+        $image = $request->file('product_image');
         
-
-        Product::whereId($id)->update($validatedData);
+        $imageName = time().'.'.$image->extension();
+        // modify image path
+        $image->move(public_path('uploads/products/'),$imageName);
+        $product = Product::find($id);
+        // db fields
+        $product->product_category_id = $product_category_id;
+        $product->product_name = $product_name;
+        $product->product_price = $product_price;
+        $product->product_description = $product_description;
+        $product->product_image = $imageName;
+        $product->save();
 
         return redirect('/products')->with('success', 'Contact is successfully updated');
     }
