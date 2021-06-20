@@ -13,7 +13,7 @@
 				<div class="row">
 					<div class="col-xl-12">
 						<div class="welcome-card rounded pl-5 pt-5 pb-4 mt-3 position-relative mb-5">
-							<h4 class="text-warning">Welcome to Tixia!</h4>
+							<h4 class="text-warning">Gas Delivery Project</h4>
 							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dumm.</p>
 							<a class="btn btn-warning btn-rounded" href="javascript:void(0);">Learn More <i class="las la-long-arrow-alt-right ml-4"></i></a>
 							<a class="btn-link text-dark ml-3" href="javascript:void(0);">Remind Me Later</a>
